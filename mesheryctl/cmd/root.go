@@ -29,6 +29,32 @@ type TerminalFormatter struct{}
 
 var cfgFile string
 
+var cmdDetails = `
+Meshery is the service mesh management plane, providing lifecycle, performance, and configuration management of service meshes and their workloads.
+
+Usage:
+  mesheryctl [command]
+
+Available Commands:
+  cleanup     Clean up Meshery
+  help        Help about any command
+  logs        Print logs
+  perf        Performance testing and benchmarking
+  start       Start Meshery
+  status      Check Meshery status
+  stop        Stop Meshery
+  update      Pull new Meshery images from Docker Hub
+  version     Version of mesheryctl
+
+Flags:
+      --config string   config file (default location is: $HOME/.meshery/config.yaml)
+  -h, --help            help for mesheryctl
+  -t, --toggle          Help message for toggle
+  -v, --version         Version of mesheryctl
+
+Use "mesheryctl [command] --help" for more information about a command.
+`
+
 //Format is exported
 func (f *TerminalFormatter) Format(entry *log.Entry) ([]byte, error) {
 	return append([]byte(entry.Message), '\n'), nil
@@ -38,13 +64,16 @@ func (f *TerminalFormatter) Format(entry *log.Entry) ([]byte, error) {
 var rootCmd = &cobra.Command{
 	Use:   "mesheryctl",
 	Short: "Meshery Command Line tool",
-	Long:  `Meshery is the multi-service mesh management plane, providing lifecycle, performance, and configuration management of service meshes.`,
+	Long:  `Meshery is the service mesh management plane, providing lifecycle, performance, and configuration management of service meshes and their workloads.`,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
 	Run: func(cmd *cobra.Command, args []string) {
 		b, _ := cmd.Flags().GetBool("version")
 		if b {
 			versionCmd.Run(nil, nil)
+		}
+		if len(args) == 0 {
+			log.Print(cmdDetails)
 		}
 	},
 }

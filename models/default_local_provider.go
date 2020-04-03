@@ -24,12 +24,12 @@ type DefaultLocalProvider struct {
 
 // Name - Returns Provider's friendly name
 func (l *DefaultLocalProvider) Name() string {
-	return "Local (ephemeral session) (free use)"
+	return "None"
 }
 
 // Description - returns a short description of the provider for display in the Provider UI
 func (l *DefaultLocalProvider) Description() string {
-	return `Local Provider
+	return `Provider: None
 	- ephemeral sessions
 	- environment setup not saved
 	- no performance test result history
@@ -39,6 +39,16 @@ func (l *DefaultLocalProvider) Description() string {
 // GetProviderType - Returns ProviderType
 func (l *DefaultLocalProvider) GetProviderType() ProviderType {
 	return LocalProviderType
+}
+
+// GetProviderProperties - Returns all the provider properties required
+func (l *DefaultLocalProvider) GetProviderProperties() ProviderProperties {
+	var result ProviderProperties
+	result.ProviderType = l.GetProviderType()
+	result.DisplayName = l.Name()
+	result.Description = l.Description()
+	result.Capabilities = make([]Capability, 0)
+	return result
 }
 
 // InitiateLogin - initiates login flow and returns a true to indicate the handler to "return" or false to continue

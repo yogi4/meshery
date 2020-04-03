@@ -12,7 +12,7 @@
 
 <p align="center"><i>If you’re using Meshery or if you like the project, please <a href="https://github.com/layer5io/meshery/stargazers">★</a> star this repository to show your support! 🤩</i></p>
 
-[Meshery](https://meshery.io) is the multi-service mesh management plane offering lifecycle, configuration and performance management of service meshes and applications running atop them.
+[Meshery](https://meshery.io) is the multi-service mesh management plane offering lifecycle, configuration and performance management of service meshes and their workloads.
 
 ## <a name="running"></a>Run Meshery
 
@@ -37,6 +37,80 @@ See [getting started](https://meshery.io/#getting-started) to quickly deploy Mes
 
 [Meshery documentation](https://meshery.layer5.io/docs/installation) offers full installation procedures for your platform of choice.
 
+## <a name="service-meshes"></a>Supported Service Meshes
+
+<div class="container flex">
+  <div class="text editable">
+    <h2>Interoperate <strong>multiple</strong> service meshes</h2>
+    <p>Service mesh adapters provision, configure, and manage their respective service meshes.
+      <table class="adapters">
+        <thead style="display:none;">
+          <th>Status</th>
+          <th>Adapter</th>
+        </thead>
+        <tbody>
+        <tr>
+          <td rowspan="7" class="stable-adapters">stable</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/layer5io/meshery-istio">
+            <img src='https://raw.githubusercontent.com/layer5io/meshery.io/master/images/istio.png' alt='Istio Service Mesh adapter' align="middle" hspace="10px" vspace="5px" height="30px" > Meshery adapter for Istio</a> 
+          </td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/layer5io/meshery-linkerd">
+            <img src='https://raw.githubusercontent.com/layer5io/meshery.io/master/images/linkerd.png' alt='Linkerd' align="middle" hspace="5px" vspace="5px" height="30px" width="30px"> Meshery adapter for Linkerd</a> 
+          </td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/layer5io/meshery-consul">
+            <img src='https://raw.githubusercontent.com/layer5io/meshery.io/master/images/consul.png' alt='Consul Connect' align="middle" hspace="5px" vspace="5px" height="30px" width="30px"> Meshery adapter for Consul</a>
+          </td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/layer5io/meshery-octarine">
+            <img src='https://raw.githubusercontent.com/layer5io/meshery.io/master/images/octarine.png' alt='Octarine Service Mesh' align="middle" hspace="5px" vspace="5px" height="30px" width="30px">Meshery adapter for Octarine</a> 
+          </td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/layer5io/meshery-nsm">
+            <img src='https://raw.githubusercontent.com/layer5io/meshery.io/master/images/nsm.png' alt='Network Mesh' align="middle" hspace="5px" vspace="5px" height="30px" width="30px">Meshery adapter for Network Service Mesh</a>
+          </td>
+        </tr>
+        <tr><td class="stable-adapters"></td></tr>
+        <tr>
+          <td rowspan="2" class="beta-adapters">beta</td>
+          <td><a href="https://github.com/layer5io/meshery-cpx">
+            <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQksHj15DkID308qQw3cmkQrRULPxyzbVquSZVev-9dj1L6sPs-rQ&s' alt='Citrix CPX Service Mesh' align="middle" hspace="5px" vspace="5px" height="30px" width="30px">Meshery adapter for Citrix CPX</a>
+          </td>
+        </tr>
+        <tr><td class="beta-adapters"></td></tr>
+        <tr>
+          <td rowspan="6" class="alpha-adapters">alpha</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/layer5io/meshery-maesh">
+            <img src='https://github.com/containous/maesh/raw/master/docs/content/assets/img/maesh.png' alt='Maesh Service Mesh' align="middle" hspace="5px" vspace="5px" height="30px" width="30px">Meshery adapter for Maesh</a>
+          </td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/layer5io/meshery-app-mesh">
+            <img src='https://raw.githubusercontent.com/layer5io/meshery.io/master/images/aws-app-mesh.png' alt='AWS App Mesh Service Mesh' align="middle" hspace="5px" vspace="5px" height="30px" width="30px">Meshery adapter for App Mesh </a>
+          </td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/layer5io/meshery-kuma">
+            <img src='https://pbs.twimg.com/profile_images/1171109603158843392/bV2M7l39_400x400.jpg' alt='Kuma Service Mesh' align="middle" hspace="5px" vspace="5px" height="30px" width="30px">Meshery adapter for Kuma</a>
+          </td>
+        </tr><tr>
+        </tr>
+        <tr><td class="alpha-adapters"></td></tr>
+        </tbody>
+    </table>
+  </p>
+</div>
+
+
 ## <a name="functionality">Functionality</a>
 
 <p style="clear:both;">
@@ -55,7 +129,7 @@ Interoperate multiple service meshes with service mesh adapters provision, confi
 Assess your service mesh configuration against deployment and operational best practices with Meshery's configuration validator.
 
 Onboard your workload onto the service mesh with confidence. Check your service mesh configuration for anti-patterns and avoid common pitfalls.
-<br /><br /><br />
+<br /><br /><br /><br />
 </p>
 
 <p style="clear:both;">
@@ -76,12 +150,12 @@ You may deploy Meshery internal to your cluster or external to your cluster.
 ## Join the service mesh community!
 
 <a name="contributing"></a><a name="community"></a>
+Our projects are community-built and welcome collaboration. 👍 Be sure to see the <a href="https://docs.google.com/document/d/17OPtDE_rdnPQxmk2Kauhm3GwXF1R5dZ3Cj8qZLKdo5E/edit">Meshery Contributors Welcome Guide</a> for a tour of resources available to you and jump into our <a href="http://slack.layer5.io">Slack</a>!
 
 <a href="https://meshery.io/community"><img alt="Layer5 Service Mesh Community" src="docs/assets/images/readme/slack-128.png" style="margin-left:10px;padding-top:5px;" width="110px" align="right" /></a>
 
 <a href="http://slack.layer5.io"><img alt="Layer5 Service Mesh Community" src="docs/assets/images/readme/community.png" style="margin-right:8px;padding-top:5px;" width="140px" align="left" /></a>
 
-Our projects are community-built and welcome collaboration. 👍 Be sure to see the <a href="https://docs.google.com/document/d/17OPtDE_rdnPQxmk2Kauhm3GwXF1R5dZ3Cj8qZLKdo5E/edit">Meshery Contributors Welcome Guide</a> for a tour of resources available to you and jump into our <a href="http://slack.layer5.io">Slack</a>!
 <p>
 ✔️ <em><strong>Join</strong></em> <a href="https://drive.google.com/open?id=1c07UO9dS7_tFD-ClCWHIrEzRnzUJoFQ10EzfJTpS7FY">weekly community meeting</a> on <a href="https://calendar.google.com/calendar/b/1?cid=bGF5ZXI1LmlvX2VoMmFhOWRwZjFnNDBlbHZvYzc2MmpucGhzQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20">Fridays from 10am - 11am Central</a>.<br />
 ✔️ <em><strong>Watch</strong></em> community <a href="https://www.youtube.com/playlist?list=PL3A-A6hPO2IMPPqVjuzgqNU5xwnFFn3n0">meeting recordings</a>.<br />

@@ -46,12 +46,12 @@ type UserPref struct {
 
 // Name - Returns Provider's friendly name
 func (l *MesheryRemoteProvider) Name() string {
-	return "Meshery Cloud (persistent session) (free use)"
+	return "Meshery"
 }
 
 // Description - returns a short description of the provider for display in the Provider UI
 func (l *MesheryRemoteProvider) Description() string {
-	return `Meshery Cloud 
+	return `Provider: Meshery (default)
 	- persistent sessions 
 	- save environment setup 
 	- retrieve performance test results 
@@ -61,6 +61,16 @@ func (l *MesheryRemoteProvider) Description() string {
 // GetProviderType - Returns ProviderType
 func (l *MesheryRemoteProvider) GetProviderType() ProviderType {
 	return RemoteProviderType
+}
+
+// GetProviderProperties - Returns all the provider properties required
+func (l *MesheryRemoteProvider) GetProviderProperties() ProviderProperties {
+	var result ProviderProperties
+	result.ProviderType = l.GetProviderType()
+	result.DisplayName = l.Name()
+	result.Description = l.Description()
+	result.Capabilities = make([]Capability, 0)
+	return result
 }
 
 // SyncPreferences - used to sync preferences with the remote provider
